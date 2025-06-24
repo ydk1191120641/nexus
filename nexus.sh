@@ -447,6 +447,7 @@ while true; do
             echo "开始构建镜像并启动容器..."
             build_image
             run_container "$NODE_ID"
+            echo "使用 docker logs --tail 1000 nexus-node-rotate 查看日志..."
             read -p "按任意键返回菜单"
             ;;
         2)
