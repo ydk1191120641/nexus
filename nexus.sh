@@ -269,13 +269,10 @@ EOF
             chmod +x "$script_dir/rotate.sh"
 
             # 使用 pm2 启动轮换脚本
-            pm2 start "$script_dir/rotate.sh" --name "nexus-rotate"
-            pm2 save
+            "$script_dir/rotate.sh"
 
-            echo "节点轮换已启动！"
-            echo "使用 'pm2 status' 查看运行状态"
-            echo "使用 'pm2 logs nexus-rotate' 查看轮换日志"
-            echo "使用 'pm2 stop nexus-rotate' 停止轮换"
+            echo "节点已启动！"
+            echo "使用 'docker logs --tail 1000 nexus-node-rotate' 查看运行状态"
             read -p "按任意键返回菜单"
             ;;
         2)
